@@ -8,6 +8,6 @@
         android:icon="@drawable/ic_baseline_receipt_24"
         android:id="@+id/order"/>
     <item android:title="Account"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:icon="@drawable/ic_person"
         android:id="@+id/account"/>
 </menu>
