@@ -1,12 +1,21 @@
 package hcmute.spkt.nhom12.washdish_12;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,11 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private RecyclerView recyclerView;
+    private CuaHangAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    ArrayList<CuaHangItem> mangCuaHang;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -54,11 +68,65 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    private void filter(String text) {
+        ArrayList<CuaHangItem> fileredList = new ArrayList<>();
+
+        for(CuaHangItem cuaHangItem : mangCuaHang) {
+            if (cuaHangItem.getNameCuaHang().toLowerCase(Locale.ROOT).contains(text.toLowerCase(Locale.ROOT))) {
+                fileredList.add(cuaHangItem);
+            }
+        }
+
+        adapter.filterList(fileredList);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        mangCuaHang = new ArrayList<>();
+        mangCuaHang.add(new CuaHangItem(R.drawable.highlandscoffee,"HighLands Coffe","Coffe ngon mà đắt"));
+        mangCuaHang.add(new CuaHangItem(R.drawable.teagon,"Tea Gon","Trà Sữa"));
+        mangCuaHang.add(new CuaHangItem(R.drawable.kfc,"KFC","Gàn Rán mà không ngon"));
+        mangCuaHang.add(new CuaHangItem(R.drawable.jollibee,"Jollibee","Gà Rán mà Khoai tây chiên dở"));
+        mangCuaHang.add(new CuaHangItem(R.drawable.thecoffeehouse,"The Coffee House","Coffe sạch mà vẫn đắt"));
+
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getActivity());
+        adapter = new CuaHangAdapter(mangCuaHang);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClicktener(new CuaHangAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), QuanAnActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        EditText editText = (EditText) root.findViewById(R.id.edittextSearch);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
+        return root;
     }
 }

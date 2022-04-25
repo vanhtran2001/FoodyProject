@@ -26,6 +26,7 @@
                 android:layout_height="100dp"
                 android:src="@drawable/jollibee"/>
             <TextView
+                android:id="@+id/textviewTenCuaHang"
                 android:paddingTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,13 +47,15 @@
                 android:layout_height="50dp"
                 android:src="@drawable/chicken"
                 android:layout_weight="1"/>
+
             <TextView
-                android:paddingTop="2dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:paddingTop="2dp"
                 android:text="Gà rán sốt cay"
-                android:textSize="22sp"
-                android:layout_weight="7" />
+                android:textSize="22sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
