@@ -1,10 +1,17 @@
 package hcmute.spkt.nhom12.washdish_12;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -22,6 +29,10 @@ public class AccountFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText edtEmail, edtPassword, edtFname, edtPhone, edtAddress;
+    private Button btnUpdate, btnLogout;
+    private UserItem user;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -59,6 +70,77 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View root = inflater.inflate(R.layout.fragment_account, container, false);
+
+        edtEmail = (EditText)root.findViewById(R.id.edittextEmailAccount);
+        edtPassword = (EditText)root.findViewById(R.id.edittextPasswordAccount);
+        edtFname = (EditText)root.findViewById(R.id.edittextNameAccount);
+        edtPhone = (EditText)root.findViewById(R.id.edittextPhoneAccount);
+        edtAddress = (EditText)root.findViewById(R.id.edittextAddressAccount);
+        btnUpdate = (Button)root.findViewById(R.id.buttonUpdate);
+        btnLogout = (Button) root.findViewById(R.id.buttonLogOut);
+        edtEmail.setEnabled(false);
+        loadData();
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(),SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    Database database = new Database(getActivity().getApplicationContext());
+                    UserItem curentUser = database.find(user.getId());
+                    curentUser.setPassword(edtPassword.getText().toString());
+                    curentUser.setFname(edtFname.getText().toString());
+                    curentUser.setPhone(edtPhone.getText().toString());
+                    curentUser.setAdrs(edtAddress.getText().toString());
+                    if(database.suaUser(curentUser)) {
+                        Toast.makeText(getActivity(),"Cập nhật thông tin thành công!",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent();
+                        intent.setClass(getActivity(),getActivity().getClass());
+                        intent.putExtra("account", curentUser);
+                        startActivity(intent);
+                    }else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                        builder.setMessage("Cập nhật thông tin thất bại!");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                        builder.show();
+                    }
+                } catch (Exception e){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    builder.setMessage(e.getMessage());
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    });
+                    builder.show();
+                }
+            }
+        });
+
+        return root;
+    }
+
+    private void loadData(){
+        Intent intent = getActivity().getIntent();
+        user = (UserItem) intent.getSerializableExtra("account");
+        edtEmail.setText(user.getEmail());
+        edtPassword.setText(user.getPassword());
+        edtFname.setText(user.getFname());
+        edtPhone.setText(user.getPhone());
+        edtAddress.setText(user.getAdrs());
     }
 }

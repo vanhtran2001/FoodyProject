@@ -5,17 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
     android:orientation="vertical"
-    android:background="#4CEADD">
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <EditText
-        android:hint="Search"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:hint="Tìm kiếm"
         android:id="@+id/edittextSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ListView
+        android:id="@+id/listviewCuaHang"
         android:padding="4dp"
         android:scrollbars="vertical"
         android:layout_width="match_parent"

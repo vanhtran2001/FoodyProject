@@ -1,8 +1,11 @@
 package hcmute.spkt.nhom12.washdish_12;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,70 +14,61 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CuaHangAdapter extends RecyclerView.Adapter<CuaHangAdapter.CuaHangViewHolder> {
+public class CuaHangAdapter extends BaseAdapter {
 
-    private ArrayList<hcmute.spkt.nhom12.washdish_12.CuaHangItem> listCuaHang;
-    private OnItemClickListener itemClickListener;
+    Context context;
+    ArrayList<CuaHangItem> listCuaHang;
 
-    public interface OnItemClickListener {
-        void onItemClick(int position);
+    public CuaHangAdapter (Context context, ArrayList<CuaHangItem> listCuaHang) {
+        this.context = context;
+        this.listCuaHang = listCuaHang;
     }
-
-    public void setOnItemClicktener(OnItemClickListener listener) {
-        itemClickListener = listener;
-    }
-
-    @NonNull
     @Override
-    public CuaHangViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cuahang_item,parent,false);
-        CuaHangViewHolder cuaHangViewHolder = new CuaHangViewHolder(view,itemClickListener);
-        return cuaHangViewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull CuaHangViewHolder holder, int position) {
-        hcmute.spkt.nhom12.washdish_12.CuaHangItem cuaHangItem = listCuaHang.get(position);
-
-        holder.anhCuaHang.setImageResource(cuaHangItem.getImageCuaHang());
-        holder.tenCuaHang.setText(cuaHangItem.getNameCuaHang());
-        holder.motaCuaHang.setText(cuaHangItem.getDesCuaHang());
-    }
-
-    @Override
-    public int getItemCount() {
+    public int getCount() {
         return listCuaHang.size();
     }
 
-    public void filterList(ArrayList<hcmute.spkt.nhom12.washdish_12.CuaHangItem> filteredList) {
-        listCuaHang = filteredList;
-        notifyDataSetChanged();
+    @Override
+    public Object getItem(int i) {
+        return listCuaHang.get(i);
     }
 
-    public static class CuaHangViewHolder extends RecyclerView.ViewHolder {
-        public ImageView anhCuaHang;
-        public TextView tenCuaHang;
-        public TextView motaCuaHang;
-        public CuaHangViewHolder(@NonNull View itemView, OnItemClickListener listener) {
-            super(itemView);
-            anhCuaHang = itemView.findViewById(R.id.imageCuaHang);
-            tenCuaHang = itemView.findViewById(R.id.textviewTenCuaHang);
-            motaCuaHang = itemView.findViewById(R.id.texviewMoTaCuaHang);
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (listener != null) {
-                        int pos = getAdapterPosition();
-                        if (pos != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(pos);
-                        }
-                    }
-                }
-            });
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+
+        ViewHolder holder;
+        if (view == null) {
+            holder = new ViewHolder();
+            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+            view = inflater.inflate(R.layout.cuahang_item,null);
+            holder.tvTenCuaHang = view.findViewById(R.id.textviewTenCuaHang);
+            holder.tvMoTaCuaHang = view.findViewById(R.id.texviewMoTaCuaHang);
+            holder.imgCuaHang = view.findViewById(R.id.imageCuaHang);
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
         }
+        CuaHangItem cuaHangItem = listCuaHang.get(i);
+        holder.tvTenCuaHang.setText(cuaHangItem.getNameCuaHang());
+        holder.tvMoTaCuaHang.setText(cuaHangItem.getDesCuaHang());
+        String imgName = cuaHangItem.getImageCuaHang();
+        int resId = ((Activity)context).getResources().getIdentifier(imgName,"drawable",((Activity)context).getPackageName());
+        holder.imgCuaHang.setImageResource(resId);
+        return view;
     }
-    public CuaHangAdapter(ArrayList<hcmute.spkt.nhom12.washdish_12.CuaHangItem> mangCuaHang) {
-        listCuaHang = mangCuaHang;
+
+    class ViewHolder {
+        ImageView imgCuaHang;
+        TextView tvTenCuaHang, tvMoTaCuaHang;
+    }
+
+    public void filterList(ArrayList<CuaHangItem> list) {
+        listCuaHang = list;
+        notifyDataSetChanged();
     }
 }

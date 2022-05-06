@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -33,10 +34,10 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private RecyclerView recyclerView;
-    private CuaHangAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    ListView listView;
+    CuaHangAdapter adapter;
     ArrayList<CuaHangItem> mangCuaHang;
+    CuaHangDAO dao;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -68,7 +69,7 @@ public class HomeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    private void filter(String text) {
+    /*private void filter(String text) {
         ArrayList<CuaHangItem> fileredList = new ArrayList<>();
 
         for(CuaHangItem cuaHangItem : mangCuaHang) {
@@ -78,36 +79,18 @@ public class HomeFragment extends Fragment {
         }
 
         adapter.filterList(fileredList);
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        mangCuaHang = new ArrayList<>();
-        mangCuaHang.add(new CuaHangItem(R.drawable.highlandscoffee,"HighLands Coffe","Coffe ngon mà đắt"));
-        mangCuaHang.add(new CuaHangItem(R.drawable.teagon,"Tea Gon","Trà Sữa"));
-        mangCuaHang.add(new CuaHangItem(R.drawable.kfc,"KFC","Gàn Rán mà không ngon"));
-        mangCuaHang.add(new CuaHangItem(R.drawable.jollibee,"Jollibee","Gà Rán mà Khoai tây chiên dở"));
-        mangCuaHang.add(new CuaHangItem(R.drawable.thecoffeehouse,"The Coffee House","Coffe sạch mà vẫn đắt"));
-
-        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getActivity());
-        adapter = new CuaHangAdapter(mangCuaHang);
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
-        adapter.setOnItemClicktener(new CuaHangAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), QuanAnActivity.class);
-                startActivity(intent);
-            }
-        });
+        dao = new CuaHangDAO(getActivity());
+        mangCuaHang = dao.getAll();
+        listView = (ListView) root.findViewById(R.id.listviewCuaHang);
+        adapter = new CuaHangAdapter(getActivity(),mangCuaHang);
+        listView.setAdapter(adapter);
 
         EditText editText = (EditText) root.findViewById(R.id.edittextSearch);
         editText.addTextChangedListener(new TextWatcher() {
@@ -128,5 +111,15 @@ public class HomeFragment extends Fragment {
         });
 
         return root;
+    }
+    private void filter(String text){
+        ArrayList<CuaHangItem> list = new ArrayList<>();
+
+        for (CuaHangItem item : mangCuaHang) {
+            if (item.getNameCuaHang().toLowerCase(Locale.ROOT).contains(text.toLowerCase(Locale.ROOT))){
+                list.add(item);
+            }
+        }
+        adapter.filterList(list);
     }
 }

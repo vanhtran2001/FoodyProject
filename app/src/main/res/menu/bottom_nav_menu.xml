@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
+    <item android:title="Trang chủ"
         android:icon="@drawable/ic_baseline_home_24"
         android:id="@+id/home"/>
-    <item android:title="Order"
+    <item android:title="Đơn hàng"
         android:icon="@drawable/ic_baseline_receipt_24"
         android:id="@+id/order"/>
-    <item android:title="Account"
+    <item android:title="Tài khoản"
         android:icon="@drawable/ic_person"
         android:id="@+id/account"/>
 </menu>

@@ -7,74 +7,13 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/listviewOrder"
         android:layout_width="match_parent"
-        android:layout_height="159dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="571dp"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:weightSum="10">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:layout_weight="1"
-            android:src="@drawable/chicken" />
-
-        <TextView
-            android:layout_width="160dp"
-            android:layout_height="56dp"
-            android:layout_marginEnd="12dp"
-            android:layout_toStartOf="@+id/buttonDatLai"
-            android:gravity="center"
-            android:text="Gà rán sốt cay"
-            android:textStyle="bold"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/buttonDanhGia"
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="27dp"
-            android:background="#56DDC3"
-            android:text="Đánh giá" />
-
-        <Button
-            android:id="@+id/buttonDatLai"
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/buttonDanhGia"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="20dp"
-            android:background="#56DDC3"
-            android:text="Đặt lại" />
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="41dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:text="Gía Tiền:" />
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="41dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="46dp"
-            android:layout_marginEnd="128dp"
-            android:layout_marginBottom="15dp"
-            android:layout_toStartOf="@+id/buttonDanhGia"
-            android:gravity="center"
-            android:text="17000 VND" />
-
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:scrollbars="vertical"
+        tools:ignore="InvalidId" />
 
 
 </RelativeLayout>

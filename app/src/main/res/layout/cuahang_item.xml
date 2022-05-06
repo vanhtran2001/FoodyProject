@@ -27,6 +27,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             tools:ignore="UnknownId"
+            android:layout_marginStart="8dp"
             android:textColor="@color/black"/>
 
         <TextView

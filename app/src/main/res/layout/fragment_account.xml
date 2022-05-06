@@ -16,8 +16,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="310dp"
-                android:layout_alignParentBottom="true"
+                android:layout_height="210dp"
+                android:layout_alignParentTop="true"
                 android:layout_marginBottom="421dp"
                 android:background="#349CF8"
                 android:orientation="vertical">
@@ -33,7 +33,7 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="138dp"
                     android:padding="5dp"
-                    android:src="@drawable/ic_user"
+                    android:src="@drawable/jett"
                     app:shapeAppearanceOverlay="@style/Circular"
                     app:strokeColor="#272729"
                     app:strokeWidth="1dp" />
@@ -43,31 +43,48 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="457dp"
+                android:layout_height="520dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp">
 
-
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/edittextEmailAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="59dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="68dp"
-                    android:layout_marginEnd="21dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginEnd="23dp"
                     android:background="@drawable/custom_input"
                     android:drawableStart="@drawable/custom_email_icon"
                     android:drawablePadding="15dp"
                     android:hint="Email" />
 
                 <EditText
-                    android:id="@+id/name"
+                    android:id="@+id/edittextPasswordAccount"
                     android:layout_width="279dp"
                     android:layout_height="59dp"
-                    android:layout_below="@+id/email"
+                    android:layout_below="@+id/edittextEmailAccount"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="9dp"
+                    android:background="@drawable/custom_input"
+                    android:drawableStart="@drawable/custom_lock_icon"
+                    android:drawablePadding="12dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    tools:ignore="UnknownId" />
+
+                <EditText
+                    android:id="@+id/edittextNameAccount"
+                    android:layout_width="279dp"
+                    android:layout_height="59dp"
+                    android:layout_below="@+id/edittextPasswordAccount"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="18dp"
@@ -79,10 +96,10 @@
                     android:hint="Full Name" />
 
                 <EditText
-                    android:id="@+id/phone"
+                    android:id="@+id/edittextPhoneAccount"
                     android:layout_width="279dp"
                     android:layout_height="59dp"
-                    android:layout_below="@+id/name"
+                    android:layout_below="@+id/edittextNameAccount"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="16dp"
@@ -94,10 +111,10 @@
                     android:hint="Phone Number" />
 
                 <EditText
-                    android:id="@+id/adrs"
+                    android:id="@+id/edittextAddressAccount"
                     android:layout_width="279dp"
                     android:layout_height="59dp"
-                    android:layout_below="@+id/phone"
+                    android:layout_below="@+id/edittextPhoneAccount"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="16dp"
@@ -109,24 +126,28 @@
                     android:hint="Address" />
 
                 <Button
+                    android:id="@+id/buttonUpdate"
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_button"
-                    android:text="Update" />
+                    android:text="Update"
+                    tools:ignore="InvalidId" />
 
                 <Button
+                    android:id="@+id/buttonLogOut"
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="51dp"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/custom_button"
-                    android:text="Log Out" />
+                    android:text="Log Out"
+                    tools:ignore="InvalidId" />
 
             </RelativeLayout>
 
@@ -135,5 +156,6 @@
 
 
     </RelativeLayout>
+
 
 </RelativeLayout>

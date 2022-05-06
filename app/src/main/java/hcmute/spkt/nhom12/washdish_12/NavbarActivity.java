@@ -21,7 +21,7 @@ public class NavbarActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
-        getSupportActionBar().hide();
+        /*getSupportActionBar().hide();*/
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
