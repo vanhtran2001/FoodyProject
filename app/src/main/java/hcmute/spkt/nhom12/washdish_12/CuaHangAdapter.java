@@ -2,6 +2,7 @@ package hcmute.spkt.nhom12.washdish_12;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,14 @@ public class CuaHangAdapter extends BaseAdapter {
         String imgName = cuaHangItem.getImageCuaHang();
         int resId = ((Activity)context).getResources().getIdentifier(imgName,"drawable",((Activity)context).getPackageName());
         holder.imgCuaHang.setImageResource(resId);
+        holder.imgCuaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(context,QuanAnActivity.class);
+                intent.putExtra("QuanAn",cuaHangItem.getId());
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 

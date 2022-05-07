@@ -8,7 +8,7 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static int TIME_OUT=5000;
+    public static int TIME_OUT=1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
