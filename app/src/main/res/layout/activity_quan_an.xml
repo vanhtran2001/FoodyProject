@@ -16,132 +16,32 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="361dp"
             android:src="@drawable/back" />
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/textviewTenCuaHangQuanAn"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:layout_width="match_parent"
-            android:layout_height="186dp"
+            android:gravity="right"
+            android:layout_height="50dp"
+            android:textSize="30sp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/imageviewBackQuanAn"
+            android:padding="5dp"
+            android:text="TÊN QUÁN ĂN"
+            tools:ignore="UnknownId" />
+
+        <ListView
+            android:id="@+id/listviewMonAn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/imageviewBackQuanAn"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="1dp"
             android:layout_marginEnd="0dp"
-            android:background="@drawable/cutpizza"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="277dp"
-                android:layout_height="117dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="74dp"
-                android:layout_marginBottom="33dp"
-                android:gravity="center"
-                android:text="TÊN QUÁN ĂN"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_above="@+id/recycleviewMonAn"
-            android:layout_marginBottom="14dp"
-            android:weightSum="4">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="168"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bình luận" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="13"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hình ảnh" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="38"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Check in" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="225"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lưu lại" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleviewMonAn"
-            android:layout_width="match_parent"
-            android:layout_height="384dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="2dp" />
+            android:layout_marginBottom="2dp"
+            android:scrollbars="vertical"
+            tools:ignore="UnknownId" />
 
     </RelativeLayout>
 

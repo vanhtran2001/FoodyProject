@@ -13,6 +13,10 @@ public class CuaHangItem {
         this.imageCuaHang = imageCuaHang;
     }
 
+    public CuaHangItem() {
+
+    }
+
     public int getId() {
         return id;
     }

@@ -30,6 +30,7 @@
             android:layout_marginBottom="66dp"
             android:text="Tên Món Ăn"
             android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="InvalidId" />
 
@@ -41,7 +42,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="72dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="25dp"
             android:layout_toEndOf="@+id/imageviewFood"
             android:text="Mô Tả" />
 
@@ -55,7 +56,9 @@
             android:layout_marginEnd="235dp"
             android:layout_marginBottom="1dp"
             android:layout_toEndOf="@+id/imageviewFood"
-            android:text="Giá: " />
+            android:text="Giá: "
+            android:textColor="#F44336"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/imageviewDatHang"

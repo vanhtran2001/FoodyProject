@@ -22,13 +22,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/imageCuaHang"
             android:text="Tên cửa hàng"
+            android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
-            tools:ignore="UnknownId"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/black"/>
+            tools:ignore="UnknownId" />
 
         <TextView
             android:id="@+id/texviewMoTaCuaHang"

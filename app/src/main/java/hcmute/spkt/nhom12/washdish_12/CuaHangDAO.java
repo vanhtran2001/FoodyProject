@@ -28,4 +28,21 @@ public class CuaHangDAO {
         cursor.close();
         return listCuaHang;
     }
+    public CuaHangItem find(int id){
+        CuaHangItem cuaHangItem = null;
+        try {
+            SQLiteDatabase db = database.getReadableDatabase();
+            Cursor cs = db.rawQuery("SELECT * FROM CuaHang WHERE Id=?", new String[]{String.valueOf(id)});
+            if(cs.moveToFirst()){
+                cuaHangItem = new CuaHangItem();
+                cuaHangItem.setId(0);
+                cuaHangItem.setNameCuaHang(cs.getString(1));
+                cuaHangItem.setDesCuaHang(cs.getString(2));
+                cuaHangItem.setImageCuaHang(cs.getString(3));
+            }
+        } catch (Exception e) {
+            cuaHangItem = null;
+        }
+        return cuaHangItem;
+    }
 }

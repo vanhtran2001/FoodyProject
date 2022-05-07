@@ -1,24 +1,28 @@
 package hcmute.spkt.nhom12.washdish_12;
 
 public class MonAnItem {
-    private int imageMonAn;
+    private int idMonAn;
     private String nameMonAn;
-    private  String DesMonAn;
-    private int giaMonAn;
+    private String desMonAn;
+    private int priceMonAn;
+    private String imageMonAn;
+    private int idCuaHang;
 
-    public MonAnItem(int imageMonAn, String nameMonAn, String desMonAn, int giaMonAn) {
-        this.imageMonAn = imageMonAn;
+    public MonAnItem(int idMonAn, String nameMonAn, String desMonAn, int priceMonAn, String imageMonAn, int idCuaHang) {
+        this.idMonAn = idMonAn;
         this.nameMonAn = nameMonAn;
-        DesMonAn = desMonAn;
-        this.giaMonAn = giaMonAn;
-    }
-
-    public int getImageMonAn() {
-        return imageMonAn;
-    }
-
-    public void setImageMonAn(int imageMonAn) {
+        this.desMonAn = desMonAn;
+        this.priceMonAn = priceMonAn;
         this.imageMonAn = imageMonAn;
+        this.idCuaHang = idCuaHang;
+    }
+
+    public int getIdMonAn() {
+        return idMonAn;
+    }
+
+    public void setIdMonAn(int idMonAn) {
+        this.idMonAn = idMonAn;
     }
 
     public String getNameMonAn() {
@@ -29,19 +33,35 @@ public class MonAnItem {
         this.nameMonAn = nameMonAn;
     }
 
-    public int getGiaMonAn() {
-        return giaMonAn;
-    }
-
-    public void setGiaMonAn(int giaMonAn) {
-        this.giaMonAn = giaMonAn;
-    }
-
     public String getDesMonAn() {
-        return DesMonAn;
+        return desMonAn;
     }
 
     public void setDesMonAn(String desMonAn) {
-        DesMonAn = desMonAn;
+        this.desMonAn = desMonAn;
+    }
+
+    public int getPriceMonAn() {
+        return priceMonAn;
+    }
+
+    public void setPriceMonAn(int priceMonAn) {
+        this.priceMonAn = priceMonAn;
+    }
+
+    public String getImageMonAn() {
+        return imageMonAn;
+    }
+
+    public void setImageMonAn(String imageMonAn) {
+        this.imageMonAn = imageMonAn;
+    }
+
+    public int getIdCuaHang() {
+        return idCuaHang;
+    }
+
+    public void setIdCuaHang(int idCuaHang) {
+        this.idCuaHang = idCuaHang;
     }
 }
