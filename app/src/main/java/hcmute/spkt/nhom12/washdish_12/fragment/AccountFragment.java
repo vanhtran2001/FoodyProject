@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,11 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+
+import hcmute.spkt.nhom12.washdish_12.database.Database;
+import hcmute.spkt.nhom12.washdish_12.R;
+import hcmute.spkt.nhom12.washdish_12.activity.SignInActivity;
+import hcmute.spkt.nhom12.washdish_12.model.UserItem;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,7 +89,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(),SignInActivity.class);
+                intent.setClass(getActivity(), SignInActivity.class);
                 startActivity(intent);
             }
         });

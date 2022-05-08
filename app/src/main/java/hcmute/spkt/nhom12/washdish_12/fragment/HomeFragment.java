@@ -1,23 +1,24 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Locale;
+
+import hcmute.spkt.nhom12.washdish_12.model.CuaHangItem;
+import hcmute.spkt.nhom12.washdish_12.R;
+import hcmute.spkt.nhom12.washdish_12.adapter.CuaHangAdapter;
+import hcmute.spkt.nhom12.washdish_12.dao.CuaHangDAO;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,10 +1,12 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import hcmute.spkt.nhom12.washdish_12.model.UserItem;
 
 public class Database extends SQLiteOpenHelper {
 

@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,10 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
+
+import hcmute.spkt.nhom12.washdish_12.model.CuaHangItem;
+import hcmute.spkt.nhom12.washdish_12.activity.QuanAnActivity;
+import hcmute.spkt.nhom12.washdish_12.R;
 
 public class CuaHangAdapter extends BaseAdapter {
 
@@ -63,7 +64,7 @@ public class CuaHangAdapter extends BaseAdapter {
         holder.imgCuaHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(context,QuanAnActivity.class);
+                Intent intent =new Intent(context, QuanAnActivity.class);
                 intent.putExtra("QuanAn",cuaHangItem.getId());
                 context.startActivity(intent);
             }

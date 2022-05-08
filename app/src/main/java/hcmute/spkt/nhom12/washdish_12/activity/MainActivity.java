@@ -1,10 +1,12 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import hcmute.spkt.nhom12.washdish_12.R;
 
 public class MainActivity extends AppCompatActivity {
 

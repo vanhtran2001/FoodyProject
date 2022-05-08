@@ -1,10 +1,13 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.dao;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+
+import hcmute.spkt.nhom12.washdish_12.model.CuaHangItem;
+import hcmute.spkt.nhom12.washdish_12.database.Database;
 
 public class CuaHangDAO {
     Database database;

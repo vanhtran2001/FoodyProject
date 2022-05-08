@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import hcmute.spkt.nhom12.washdish_12.model.MonAnItem;
+import hcmute.spkt.nhom12.washdish_12.R;
 
 public class MonAnAdapter extends BaseAdapter {
 

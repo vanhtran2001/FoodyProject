@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import hcmute.spkt.nhom12.washdish_12.database.Database;
+import hcmute.spkt.nhom12.washdish_12.R;
+import hcmute.spkt.nhom12.washdish_12.model.UserItem;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -58,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
                     builder.show();
                 } else {
                     Intent intent = new Intent();
-                    intent.setClass(SignInActivity.this,NavbarActivity.class);
+                    intent.setClass(SignInActivity.this, NavbarActivity.class);
                     intent.putExtra("account",user);
                     setResult(RESULT_OK,intent);
                     startActivity(intent);
@@ -82,7 +85,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(SignInActivity.this,SignUpActivity.class);
+                intent.setClass(SignInActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.model;
 
 public class CuaHangItem {
     private int id;

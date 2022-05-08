@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,7 +7,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import hcmute.spkt.nhom12.washdish_12.R;
 import hcmute.spkt.nhom12.washdish_12.databinding.ActivityNavbarBinding;
+import hcmute.spkt.nhom12.washdish_12.fragment.AccountFragment;
+import hcmute.spkt.nhom12.washdish_12.fragment.HomeFragment;
+import hcmute.spkt.nhom12.washdish_12.fragment.OrderFragment;
 
 
 public class NavbarActivity extends AppCompatActivity {

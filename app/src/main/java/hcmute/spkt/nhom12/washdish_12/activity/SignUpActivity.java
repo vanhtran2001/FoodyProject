@@ -1,4 +1,4 @@
-package hcmute.spkt.nhom12.washdish_12;
+package hcmute.spkt.nhom12.washdish_12.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import hcmute.spkt.nhom12.washdish_12.database.Database;
+import hcmute.spkt.nhom12.washdish_12.R;
+import hcmute.spkt.nhom12.washdish_12.model.UserItem;
 
 public class SignUpActivity extends AppCompatActivity {
 
