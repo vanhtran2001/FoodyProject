@@ -2,12 +2,24 @@ package hcmute.spkt.nhom12.washdish_12.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 import hcmute.spkt.nhom12.washdish_12.R;
+import hcmute.spkt.nhom12.washdish_12.adapter.OrderAdapter;
+import hcmute.spkt.nhom12.washdish_12.dao.OrderDAO;
+import hcmute.spkt.nhom12.washdish_12.database.Database;
+import hcmute.spkt.nhom12.washdish_12.global.Global;
+import hcmute.spkt.nhom12.washdish_12.model.OrderItem;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +36,12 @@ public class OrderFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ListView lvOrder;
+    OrderAdapter adapter;
+    ArrayList<OrderItem> listOrder;
+    OrderDAO orderDAO;
+
 
     public OrderFragment() {
         // Required empty public constructor
@@ -61,6 +79,15 @@ public class OrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_order, container, false);
+        listOrder = new ArrayList<>();
+        orderDAO = new OrderDAO(getContext());
+        int idUser = Global.getId();
+        listOrder = orderDAO.getAllOrderById(idUser);
+        lvOrder = (ListView) root.findViewById(R.id.listviewOrder);
+        adapter = new OrderAdapter(getContext(),listOrder);
+        lvOrder.setAdapter(adapter);
+
+
         return root;
     }
 }

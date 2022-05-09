@@ -48,10 +48,17 @@ public class SignUpActivity extends AppCompatActivity {
                     UserItem userItem = database.checkEmailExists(edtEmail.getText().toString());
                     if(userItem == null) {
                         if (database.themUser(user)) {
-                            Toast.makeText(SignUpActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent();
                             intent.setClass(SignUpActivity.this, SignInActivity.class);
-                            startActivity(intent);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                            builder.setMessage("Đăng kí thành công!");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    startActivity(intent);
+                                }
+                            });
+                            builder.show();
                         } else {
                             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                             builder.setMessage("Đăng ký thất bại!");

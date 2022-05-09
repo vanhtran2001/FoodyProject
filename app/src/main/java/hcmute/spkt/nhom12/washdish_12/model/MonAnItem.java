@@ -17,6 +17,10 @@ public class MonAnItem {
         this.idCuaHang = idCuaHang;
     }
 
+    public MonAnItem() {
+
+    }
+
     public int getIdMonAn() {
         return idMonAn;
     }

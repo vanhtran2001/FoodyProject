@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.SplittableRandom;
 
 import hcmute.spkt.nhom12.washdish_12.database.Database;
 import hcmute.spkt.nhom12.washdish_12.model.MonAnItem;
@@ -33,5 +34,25 @@ public class MonAnDAO {
         }
         cs.close();
         return listMonAn;
+    }
+
+    public MonAnItem find(int id){
+        MonAnItem monAnItem = null;
+        try {
+            SQLiteDatabase db = database.getReadableDatabase();
+            Cursor cs = db.rawQuery("SELECT * FROM MonAn WHERE Id=?", new String[]{String.valueOf(id)});
+            if(cs.moveToFirst()){
+                monAnItem = new MonAnItem();
+                monAnItem.setIdMonAn(cs.getInt(0));
+                monAnItem.setNameMonAn(cs.getString(1));
+                monAnItem.setDesMonAn(cs.getString(2));
+                monAnItem.setPriceMonAn(cs.getInt(3));
+                monAnItem.setImageMonAn(cs.getString(4));
+            }
+
+        } catch (Exception e){
+            monAnItem = null;
+        }
+        return monAnItem;
     }
 }

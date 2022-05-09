@@ -5,24 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/imageMonAnOrder"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="2dp" />
+        <TextView
+            android:id="@+id/textviewTenCuaHangOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#03A9F4"
+            android:paddingLeft="10dp"
+            android:text="Tên cửa hàng"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_below="@+id/textviewTenCuaHangOrder"
             android:id="@+id/textviewTenMonAnOrder"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageMonAnOrder"
             android:text="Tên món ăn"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -31,33 +37,41 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/texviewGiaMonAnOrder"
+            android:id="@+id/textviewGiaMonAnOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textviewTenMonAnOrder"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="8dp"
-            android:layout_toEndOf="@+id/imageMonAnOrder"
+            android:layout_below="@+id/textviewTenCuaHangOrder"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="50dp"
             android:text="Giá"
-            android:textSize="20dp" />
+            android:textColor="#f11"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textviewTrangThai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageMonAnOrder"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/textviewTenMonAnOrder"
+            android:layout_marginTop="14dp"
             android:text="Đang giao hàng"
             android:textSize="20sp"
             android:textStyle="italic"
             tools:ignore="InvalidId" />
+
         <Button
-            android:layout_below="@id/imageMonAnOrder"
-            android:text="Đã nhận được hàng"
-            android:layout_marginLeft="230dp"
             android:id="@+id/buttonXacNhan"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textviewTenMonAnOrder"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textviewTrangThai"
+            android:background="#4CAF50"
+            android:text="Đã nhận được hàng" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
