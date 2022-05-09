@@ -10,7 +10,7 @@ import hcmute.spkt.nhom12.washdish_12.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static int TIME_OUT=1500;
+    public static int TIME_OUT=2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

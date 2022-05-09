@@ -2,15 +2,19 @@ package hcmute.spkt.nhom12.washdish_12.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import hcmute.spkt.nhom12.washdish_12.activity.CheckoutActivity;
+import hcmute.spkt.nhom12.washdish_12.activity.QuanAnActivity;
 import hcmute.spkt.nhom12.washdish_12.model.MonAnItem;
 import hcmute.spkt.nhom12.washdish_12.R;
 
@@ -51,6 +55,7 @@ public class MonAnAdapter extends BaseAdapter {
             holder.tvMoTaMonAn = view.findViewById(R.id.textviewMoTaMonAn);
             holder.tvGiaMonAn = view.findViewById(R.id.textviewGiaMonAn);
             holder.imgMonAn = view.findViewById(R.id.imageviewFood);
+            holder.imgDatHang =  view.findViewById(R.id.imageviewDatHang);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -63,11 +68,21 @@ public class MonAnAdapter extends BaseAdapter {
         int resId = ((Activity)context).getResources().getIdentifier(imgName,"drawable",((Activity)context).getPackageName());
         holder.imgMonAn.setImageResource(resId);
 
+        holder.imgDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CheckoutActivity.class);
+                intent.putExtra("MonAn",monAnItem.getIdMonAn());
+                intent.putExtra("CuaHang",monAnItem.getIdCuaHang());
+                context.startActivity(intent);
+            }
+        });
+
         return view;
     }
 
     class ViewHolder {
-        ImageView imgMonAn;
+        ImageView imgMonAn, imgDatHang;
         TextView tvTenMonAn, tvMoTaMonAn, tvGiaMonAn;
     }
 }

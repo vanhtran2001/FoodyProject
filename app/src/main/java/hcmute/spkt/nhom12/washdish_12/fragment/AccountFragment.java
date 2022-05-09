@@ -105,11 +105,19 @@ public class AccountFragment extends Fragment {
                     curentUser.setPhone(edtPhone.getText().toString());
                     curentUser.setAdrs(edtAddress.getText().toString());
                     if(database.suaUser(curentUser)) {
-                        Toast.makeText(getActivity(),"Cập nhật thông tin thành công!",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
-                        intent.setClass(getActivity(),getActivity().getClass());
+                        intent.setClass(getActivity(),SignInActivity.class);
                         intent.putExtra("account", curentUser);
-                        startActivity(intent);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                        builder.setMessage("Cập nhật thông tin thành công. Vui lòng đăng nhập lại!");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                                startActivity(intent);
+                            }
+                        });
+                        builder.show();
                     }else {
                         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                         builder.setMessage("Cập nhật thông tin thất bại!");

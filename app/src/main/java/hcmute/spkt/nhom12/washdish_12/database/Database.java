@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import hcmute.spkt.nhom12.washdish_12.model.OrderItem;
 import hcmute.spkt.nhom12.washdish_12.model.UserItem;
 
 public class Database extends SQLiteOpenHelper {
@@ -361,6 +362,11 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql);
         sql = "INSERT INTO User(email, password, fname, phone, address) VALUES ('vanh@gmail.com','123','Trần Việt Anh','0946754737','Buôn Ma Thuột')";
         sqLiteDatabase.execSQL(sql);
+
+        //Order
+        sql = "CREATE TABLE Orders(Id INTEGER PRIMARY KEY AUTOINCREMENT, nameCuaHang TEXT, nameMonAn TEXT, totalPrice INT, IdUser INT, FOREIGN KEY (IdUser) REFERENCES User(Id))";
+        sqLiteDatabase.execSQL(sql);
+
     }
 
     @Override
@@ -368,6 +374,7 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS CuaHang");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS MonAn");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS User");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS Orders");
     }
 
     public boolean themUser(UserItem userItem){
@@ -463,4 +470,21 @@ public class Database extends SQLiteOpenHelper {
         }
         return user;
     }
+
+    public boolean themOrder(OrderItem orderItem){
+        boolean result = true;
+        try {
+            SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("nameCuaHang",orderItem.getNameCuaHang());
+            contentValues.put("nameMonAn", orderItem.getNameMonAn());
+            contentValues.put("totalPrice", orderItem.getPrice());
+            contentValues.put("IdUser", orderItem.getIdUser());
+            result = sqLiteDatabase.insert("Orders",null,contentValues) > 0;
+        } catch (Exception e){
+            return false;
+        }
+        return result;
+    }
+
 }
