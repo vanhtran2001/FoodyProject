@@ -56,22 +56,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textviewTenMonAnOrder"
             android:layout_marginTop="14dp"
-            android:text="Đang giao hàng"
+            android:text="Đã đặt"
+            android:paddingLeft="10dp"
             android:textSize="20sp"
             android:textStyle="italic"
             tools:ignore="InvalidId" />
 
-        <Button
-            android:id="@+id/buttonXacNhan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textviewTenMonAnOrder"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@+id/textviewTrangThai"
-            android:background="#4CAF50"
-            android:text="Đã nhận được hàng" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

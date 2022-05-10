@@ -27,17 +27,26 @@
             android:gravity="right"
             android:layout_height="50dp"
             android:textSize="30sp"
-            android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/imageviewBackQuanAn"
             android:padding="5dp"
+            android:background="@color/white"
             android:text="TÊN QUÁN ĂN"
+            tools:ignore="UnknownId" />
+
+        <ImageView
+            android:id="@+id/imageviewdelivery"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/imageviewBackQuanAn"
+            android:background="@color/white"
+            android:src="@drawable/food_delivery"
             tools:ignore="UnknownId" />
 
         <ListView
             android:id="@+id/listviewMonAn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/imageviewBackQuanAn"
+            android:layout_below="@+id/imageviewdelivery"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="2dp"
             android:scrollbars="vertical"
