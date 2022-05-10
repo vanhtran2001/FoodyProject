@@ -51,7 +51,6 @@ public class OrderAdapter extends BaseAdapter {
             holder.tvMonAn = view.findViewById(R.id.textviewTenMonAnOrder);
             holder.tvGia = view.findViewById(R.id.textviewGiaMonAnOrder);
             holder.tvTrangThai = view.findViewById(R.id.textviewTrangThai);
-            holder.btnXacNhan = view.findViewById(R.id.buttonXacNhan);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
@@ -68,7 +67,6 @@ public class OrderAdapter extends BaseAdapter {
 
     class ViewHolder {
         TextView tvCuaHang, tvMonAn, tvGia, tvTrangThai;
-        Button btnXacNhan;
     }
 
 }
